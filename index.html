@@ -1,125 +1,270 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar" dir="rtl" >
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>دليل فعاليات الجامعة الافتراضية - SVU</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>الصفحة الرئيسية - SVU Events</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet" />
     <style>
-        body{font-family:'Segoe UI',Tahoma,sans-serif;background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);}
-        .hero{height:500px;background:url('https://images.unsplash.com/photo-1511632765486-a01980e01a18') center/cover;position:relative;}
-        .hero::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.5);}
-        .hero h1{color:white;position:relative;z-index:2;}
-        .card{transition:transform 0.3s;box-shadow:0 10px 30px rgba(0,0,0,0.2);}
-        .card:hover{transform:translateY(-10px);}
-        .dark-mode{background:#1a1a1a;color:white;}
-        .dark-mode .card{background:#2d2d2d;}
-        .scroll-top{position:fixed;bottom:20px;right:20px;background:#0d6efd;border:none;border-radius:50%;width:50px;height:50px;display:none;}
-        .team-section{background:#f8f9fa;}
+        body {
+            font-family: "Segoe UI", sans-serif;
+            background: #f8f9fa;
+        }
+        .card {
+            transition: transform 0.3s;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .dark-mode {
+            background: #1a1a1a;
+            color: white;
+        }
+        .dark-mode .card {
+            background: #2d2d2d;
+            color: white;
+        }
+        .scroll-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #0d6efd;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            color: white;
+            display: none;
+            z-index: 1000;
+            cursor: pointer;
+        }
+        .hero {
+            height: 400px;
+            background:
+                linear-gradient(rgba(0, 0, 0, 0.5), rgba(0,0,0,0.5)),
+                url('https://images.unsplash.com/photo-1511632765486-a01980e01a18');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
-        <div class="container">
-            <a class="navbar-brand fw-bold" href="#">
-                <img src="https://via.placeholder.com/50/0D6EFD/FFFFFF?text=SVU" width="40" class="me-2 rounded-circle">
-                SVU Events
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+      <div class="container">
+          <a class="navbar-brand fw-bold" href="#">
+              <img src="https://via.placeholder.com/40/0D6EFD/FFFFFF?text=SVU" width="35" class="me-2 rounded-circle" alt="SVU Logo" />
+              SVU Events
+          </a>
+          <div class="navbar-nav ms-auto">
+              <a class="nav-link active" href="#">الرئيسية</a>
+              <a class="nav-link" href="events.html">الفعاليات</a>
+              <a class="nav-link" href="about.html">من نحن</a>
+              <a class="nav-link" href="contact.html">اتصل بنا</a>
+              <a class="nav-link btn btn-outline-light ms-2" href="admin.html">تسجيل الدخول</a>
+          </div>
+      </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+      دليل فعاليات الجامعة الافتراضية
+  </section>
+
+  <!-- أحدث الفعاليات -->
+  <section class="container my-5">
+      <h2 class="text-center mb-5">أحدث الفعاليات</h2>
+      <div class="row g-4" id="latestEvents">
+          <!-- event cards -->
+          <div class="col-md-4">
+              <div class="card h-100">
+                  <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=400&h=250&fit=crop" class="card-img-top" alt="مهرجان الرياضة السنوي" />
+                  <div class="card-body">
+                      <h5 class="card-title">مهرجان الرياضة السنوي</h5>
+                      <p class="text-muted">15 مايو 2026 - الملعب الرئيسي</p>
+                      <button class="btn btn-primary w-100" onclick="showEvent(1)">عرض التفاصيل</button>
+                  </div>
+              </div>
+          </div>
+
+          <div class="col-md-4">
+              <div class="card h-100">
+                  <img src="https://images.unsplash.com/photo-1579952363873-27d3bfad9c6b?w=400&h=250&fit=crop" class="card-img-top" alt="المعرض الثقافي السنوي" />
+                  <div class="card-body">
+                      <h5 class="card-title">المعرض الثقافي السنوي</h5>
+                      <p class="text-muted">20 مايو 2026 - قاعة الفنون</p>
+                      <button class="btn btn-primary w-100" onclick="showEvent(2)">عرض التفاصيل</button>
+                  </div>
+              </div>
+          </div>
+
+          <div class="col-md-4">
+              <div class="card h-100">
+                  <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=400&h=250&fit=crop" class="card-img-top" alt="ندوة الذكاء الاصطناعي" />
+                  <div class="card-body">
+                      <h5 class="card-title">ندوة الذكاء الاصطناعي</h5>
+                      <p class="text-muted">25 مايو 2026 - القاعة الكبرى</p>
+                      <button class="btn btn-primary w-100" onclick="showEvent(3)">عرض التفاصيل</button>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <!-- Team Section -->
+  <section class="bg-light py-5">
+      <div class="container">
+          <h2 class="text-center mb-5">فريق المشروع</h2>
+          <div class="row text-center">
+              <div class="col-md-3"><strong>أحمد محمد</strong><br />ID: 12345</div>
+              <div class="col-md-3"><strong>فاطمة علي</strong><br />ID: 12346</div>
+              <div class="col-md-3"><strong>خالد حسن</strong><br />ID: 12347</div>
+              <div class="col-md-3"><strong>نورا سعيد</strong><br />ID: 12348</div>
+          </div>
+      </div>
+  </section>
+
+  <!-- Modal -->
+  <div
+      class="modal fade"
+      id="eventModal"
+      tabindex="-1"
+      aria-labelledby="eventModalLabel"
+      aria-hidden="true"
+  >
+      <div class="modal-dialog modal-xl">
+          <div class="modal-content">
+              <div class="modal-header bg-primary text-white">
+                  <h5 class="modal-title" id="modalTitle"></h5>
+                  <button
+                      type="button"
+                      class="btn-close btn-close-white"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                  ></button>
+              </div>
+              <div class="modal-body" id="modalBody"></div>
+              <div class="modal-footer">
+                  <a href="#" class="btn btn-success" id="addCalendar" target="_blank"
+                      ><i class="bi bi-calendar-plus"></i> إضافة للتقويم</a
+                  >
+                  <a href="#" class="btn btn-info" id="shareEvent"
+                      ><i class="bi bi-share"></i> مشاركة</a
+                  >
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <!-- Scroll and Dark Mode Buttons -->
+  <button
+    class="scroll-top"
+    onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
+    title="أعلى الصفحة"
+    >⬆️</button
+  >
+  <button class="scroll-top" onclick="toggleDark()" title="الوضع الليلي">🌙</button>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const eventsData = {
+      1: {
+        title: "مهرجان الرياضة السنوي",
+        date: "15 مايو 2026",
+        time: "9:00 ص - 6:00 م",
+        location: "الملعب الرئيسي",
+        category: "رياضة",
+        desc:
+          "فعالية رياضية كبرى تشمل كرة القدم، السلة، التنس، والمصارعة. مناسبة للطلاب والموظفين.",
+        img:
+          "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&h=400&fit=crop",
+        map: "https://maps.google.com",
+      },
+      2: {
+        title: "المعرض الثقافي السنوي",
+        date: "20 مايو 2026",
+        time: "10:00 ص - 8:00 م",
+        location: "قاعة الفنون",
+        category: "ثقافة",
+        desc:
+          "معرض للفنون التشكيلية والثقافة يضم أعمال الطلاب والفنانين المحليين.",
+        img:
+          "https://images.unsplash.com/photo-1579952363873-27d3bfad9c6b?w=600&h=400&fit=crop",
+        map: "https://maps.google.com",
+      },
+      3: {
+        title: "ندوة الذكاء الاصطناعي",
+        date: "25 مايو 2026",
+        time: "2:00 م - 5:00 م",
+        location: "القاعة الكبرى",
+        category: "علمي",
+        desc: "ندوة حول تطبيقات الذكاء الاصطناعي في التعليم والأعمال.",
+        img:
+          "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=600&h=400&fit=crop",
+        map: "https://maps.google.com",
+      },
+    };
+
+    function showEvent(id) {
+      const event = eventsData[id];
+      document.getElementById("modalTitle").textContent = event.title;
+      document.getElementById("modalBody").innerHTML = `
+        <div class="row">
+          <div class="col-md-5">
+            <img src="${event.img}" alt="${event.title}" class="img-fluid rounded shadow" />
+          </div>
+          <div class="col-md-7">
+            <div class="mb-3">
+              <span class="badge fs-6 bg-${
+                event.category === "رياضة"
+                  ? "primary"
+                  : event.category === "ثقافة"
+                  ? "success"
+                  : "info"
+              }">${event.category}</span>
+            </div>
+            <h6><i class="bi bi-calendar3 text-primary me-2"></i>${event.date}</h6>
+            <h6><i class="bi bi-clock text-warning me-2"></i>${event.time}</h6>
+            <h6><i class="bi bi-geo-alt text-success me-2"></i>${event.location}</h6>
+            <hr />
+            <p class="lead">${event.desc}</p>
+            <a href="${event.map}" target="_blank" class="btn btn-outline-primary">
+              <i class="bi bi-geo-alt me-1"></i>الطريق على الخريطة
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#home">الرئيسية</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#events">الفعاليات</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#about">من نحن</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">اتصل بنا</a></li>
-                    <li class="nav-item"><a class="nav-link btn btn-outline-light ms-2" href="#admin">تسجيل دخول</a></li>
-                </ul>
-            </div>
+          </div>
         </div>
-    </nav>
+      `;
+      document.getElementById("addCalendar").onclick = () =>
+        alert("تمت إضافة الفعالية للتقويم!");
+      document.getElementById("shareEvent").onclick = () =>
+        navigator.share?.({ title: event.title, url: window.location.href }) ||
+        alert("تم نسخ الرابط!");
 
-    <!-- Hero Slider -->
-    <section id="home" class="hero d-flex align-items-center text-center text-white">
-        <div class="container position-relative z-2">
-            <h1 class="display-4 fw-bold mb-4">دليل فعاليات الجامعة الافتراضية</h1>
-            <p class="lead mb-4">اكتشف جميع الفعاليات الجامعية في مكان واحد</p>
-            <a href="#events" class="btn btn-light btn-lg">عرض الفعاليات</a>
-        </div>
-    </section>
+      const myModal = new bootstrap.Modal(
+        document.getElementById("eventModal"),
+        {}
+      );
+      myModal.show();
+    }
 
-    <!-- Latest Events -->
-    <section id="events" class="container my-5">
-        <h2 class="text-center mb-5">أحدث الفعاليات</h2>
-        <div class="row g-4">
-            <div class="col-lg-4 col-md-6">
-                <div class="card h-100">
-                    <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=400&h=250&fit=crop" class="card-img-top" alt="مهرجان رياضي">
-                    <div class="card-body">
-                        <h5 class="card-title">مهرجان الرياضة السنوي</h5>
-                        <p class="text-muted">15 مايو 2026 - الملعب الرئيسي</p>
-                        <a href="#" class="btn btn-primary w-100">عرض التفاصيل</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="card h-100">
-                    <img src="https://images.unsplash.com/photo-1579952363873-27d3bfad9c6b?w=400&h=250&fit=crop" class="card-img-top" alt="معرض فني">
-                    <div class="card-body">
-                        <h5 class="card-title">المعرض الثقافي السنوي</h5>
-                        <p class="text-muted">20 مايو 2026 - قاعة الفنون</p>
-                        <a href="#" class="btn btn-primary w-100">عرض التفاصيل</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="card h-100">
-                    <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=400&h=250&fit=crop" class="card-img-top" alt="ندوة">
-                    <div class="card-body">
-                        <h5 class="card-title">ندوة الذكاء الاصطناعي</h5>
-                        <p class="text-muted">25 مايو 2026 - القاعة الكبرى</p>
-                        <a href="#" class="btn btn-primary w-100">عرض التفاصيل</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    function toggleDark() {
+      document.body.classList.toggle("dark-mode");
+    }
 
-    <!-- Team -->
-    <section class="team-section py-5">
-        <div class="container">
-            <h2 class="text-center mb-5">فريق المشروع BWP501</h2>
-            <div class="row text-center g-4">
-                <div class="col-md-3"><div class="p-3 bg-white rounded shadow"><strong>عبد الرحمن</strong><br><small>ID: 12345</small></div></div>
-                <div class="col-md-3"><div class="p-3 bg-white rounded shadow"><strong>رهام</strong><br><small>ID: 12346</small></div></div>
-                <div class="col-md-3"><div class="p-3 bg-white rounded shadow"><strong>رامي</strong><br><small>ID: 12347</small></div></div>
-                <div class="col-md-3"><div class="p-3 bg-white rounded shadow"><strong>محمدومحمد</strong><br><small>ID: 12348</small></div></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Dark Mode & Scroll Top -->
-    <button class="scroll-top" onclick="document.body.scrollTop=0">⬆️</button>
-    <button class="scroll-top" onclick="toggleDarkMode()" title="الوضع الليلي">🌙</button>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        // Dark Mode
-        function toggleDarkMode(){document.body.classList.toggle('dark-mode');}
-        
-        // Scroll Top
-        window.onscroll=function(){ 
-            document.querySelectorAll('.scroll-top')[0].style.display=window.scrollY>300?'block':'none';
-        };
-        
-        // Smooth Scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
-            anchor.addEventListener('click',e=>{
-                e.preventDefault();document.querySelector(anchor.getAttribute('href')).scrollIntoView({behavior:'smooth'});
-            });
-        });
-    </script>
+    window.onscroll = () => {
+      document.querySelectorAll(".scroll-top").forEach((btn) => {
+        btn.style.display = window.scrollY > 300 ? "block" : "none";
+      });
+    };
+  </script>
 </body>
 </html>
